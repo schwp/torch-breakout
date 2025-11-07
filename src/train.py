@@ -11,11 +11,10 @@ from .utils.Buffer import Buffer
 from .utils.utils import _clip_reward, _process_frame
 
 
-def train_dqn(env:gym.Env, batch_size:int=32, epsilon:float=1.0,
-              min_epsilon:float=0.1, k:int=4, gamma:float = 0.99, 
+def train_dqn(env:gym.Env, batch_size:int=32, total_frames:int = 10000000, 
+              epsilon:float=1.0, min_epsilon:float=0.1, k:int=4, gamma:float = 0.99, 
               filename:str | None = None, device:str | None = None):
-    total_frames = 10000000
-    decay_frames = 1000000
+    decay_frames = total_frames // 10
     episode = 0
 
     nb_state = env.observation_space.shape[0]
