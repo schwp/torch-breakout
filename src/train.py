@@ -14,7 +14,7 @@ from .utils.utils import _clip_reward, _process_frame
 def train_dqn(env:gym.Env, batch_size:int=32, total_frames:int = 10000000, 
               epsilon:float=1.0, min_epsilon:float=0.1, k:int=4, gamma:float = 0.99, 
               filename:str | None = None, device:str | None = None):
-    decay_frames = total_frames // 10
+    decay_frames = np.max(total_frames // 10, 1000000)
     episode = 0
 
     nb_state = env.observation_space.shape[0]
@@ -25,7 +25,7 @@ def train_dqn(env:gym.Env, batch_size:int=32, total_frames:int = 10000000,
     optimizer = optim.RMSprop(model.parameters(), lr=0.00025, alpha=0.95, eps=1e-2)
     criterion = nn.MSELoss()
 
-    buffer = Buffer(capicity=1000000)
+    buffer = Buffer(capicity=100000)
 
     frame = 0
     eps = epsilon
@@ -92,7 +92,7 @@ def train_dqn(env:gym.Env, batch_size:int=32, total_frames:int = 10000000,
             eps = max(min_epsilon, eps - epsilon_decay)
 
         episode += 1
-        if episode % 10 == 0:
+        if episode % 100 == 0:
             print(f"Episode {episode}, Frames: {frame:,}, Epsilon: {eps:.3f}")
 
     file_path = f'./src/models/{filename if filename is not None else "default.pth"}'
