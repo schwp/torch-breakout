@@ -48,5 +48,5 @@ elif args.load:
         print(f"Error: Model file '{args.filename}' not found.")
         exit(1)
 
-    env = gym.make(game, render_mode="human")
+    env = gym.make(game, render_mode="human", frameskip=1)
     play_game(env=env, filename=file, device=device)
