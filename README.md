@@ -87,12 +87,14 @@ pre-trained model. The pre-trained model are based on the architecture you have
 seen previously.
 
 #### Breakout
+- `breakout_1k.pth`, model trained on Breakout during **1 000** frames
+- `breakout_100k.pth`, model trained on Breakout during **100 000** frames
 - `breakout_1m.pth`, model trained on Breakout during **1 000 000** frames
 - `breakout_10m.pth`, model trained on Breakout during **10 000 000** frames
 - `breakout_50m.pth`, model trained on Breakout during **50 000 000** frames
 
 #### Pong
-<!-- - `pong_1m.pth`, model trained on Pong during **1 000 000** frames -->
+- `pong_1m.pth`, model trained on Pong during **1 000 000** frames
 - `pong_10m.pth`, model trained on Pong during **10 000 000** frames
 
 ## Authors
