@@ -92,7 +92,7 @@ seen previously.
 - `breakout_50m.pth`, model trained on Breakout during **50 000 000** frames
 
 #### Pong
-- `pong_1m.pth`, model trained on Pong during **1 000 000** frames
+<!-- - `pong_1m.pth`, model trained on Pong during **1 000 000** frames -->
 - `pong_10m.pth`, model trained on Pong during **10 000 000** frames
 
 ## Authors
